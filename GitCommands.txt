@@ -1,2 +1,1 @@
-Text in TestBranch. Need to understand what i do
-Второе изменеие, когда pull request создан, но слияние не произошло
+git init - создает локальный репозиторий
