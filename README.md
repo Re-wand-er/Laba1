@@ -1,2 +1,2 @@
 # Laba1 
-Тест	
+git index - 
