@@ -53,6 +53,11 @@ body {
     text-decoration: none;
 }
 
+.account{
+    display: fles;
+    float: right;
+}
+
 /* Hero Section */
 .hero {
     background: url('assets/images/main.jpg') no-repeat center center/cover; /*no-repeat center center/cover*/
