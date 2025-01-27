@@ -1,0 +1,218 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e63946;
+    text-decoration: none;
+}
+
+.header .nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.header .nav a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.header .nav a:hover {
+    color: #e63946;
+}
+
+/* Hero Section */
+.hero {
+    background: url('assets/images/main.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 5rem 1rem;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero .order-now {
+    background-color: #e63946;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.hero .order-now:hover {
+    background-color: #d62839;
+}
+
+/* Menu Section */
+.menu {
+    padding: 3rem 1rem;
+    background-color: #fff;
+}
+
+.menu h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.card-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-content p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-footer .price {
+    color: #e63946;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.card-footer .add-to-cart {
+    background-color: #e63946; /* Красный цвет */
+    color: #fff; /* Цвет текста - белый */
+    padding: 0.5rem 1rem; /* Отступы */
+    border-radius: 4px; /* Закругление углов */
+    border: none; /* Без границы */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.3s; /* Плавный переход фона */
+}
+
+.card-footer .add-to-cart:hover {
+    background-color: #d62839; /* Более тёмный красный при наведении */
+}
+
+
+.card-footer .add-to-cart:hover {
+    background-color: #d62839;
+}
+
+/* About Section */
+.about {
+    padding: 2rem 1rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about p {
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+/* Menu Section */
+.categories {
+    margin: 1.5rem 0;
+}
+
+.category-btn {
+    background-color: #e63946;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    text-align: left;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+.category-btn:hover {
+    background-color: #d62839;
+}
+
+.item-list {
+    display: none; /* Скрываем по умолчанию */
+    margin-bottom: 1rem;
+}
+
