@@ -149,6 +149,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 10px 0 1rem; /* Отступ снизу 10px, слева и справа 10px */
 }
 
 .card-footer .price {
@@ -196,3 +197,4 @@ body {
     padding: 1rem 0;
     text-align: center;
 }
+
