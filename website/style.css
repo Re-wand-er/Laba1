@@ -22,23 +22,22 @@ body {
     display: flex;
 }
 
-.header .logo {
+.header .nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.header .nav .logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: #e63946;
     text-decoration: none;
 }
 
-.header .nav {
-    display: flex;
-    gap: 1rem;
-}
-
 .header .nav a {
     text-decoration: none;
     color: #333;
     transition: color 0.3s;
-    /* display: none; */
 }
 
 .header .nav a:hover {
