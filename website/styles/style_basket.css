@@ -9,53 +9,68 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     display: flex;
+    height: 200px;
+}
+
+.basket-card .content {
+    margin-left: 10px;
+    padding-right: 10px;
+}
+
+.basket-card .content h3 {
+    font-size: 1.25rem;
+}
+
+.basket-card .content p {
+    color: #666;
+    margin-bottom: 1rem;
 }
 
 .basket-card img{
-    width: 200px;
-    height: 200px;
+    width: 20%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .basket-card .actions {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
     margin-left: auto;
     margin-right: 10px;
 }
 .basket-card .actions .price {
     text-align: left;
-    margin-bottom: 10px;
 }
 .basket-card .actions .price span{
     font-weight: bold;
     color: #e63946;
     font-size: 1.2rem;
-    margin-bottom: 10px;
-    
 }
 .basket-card .actions .quantity {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    justify-content: left;
 }
 .basket-card .actions .quantity input {
-    width: 50px;
+    width: 5vw;
     text-align: center;
     margin-left: 5px;
 }
 
-.basket-card .actions .buttons {
-    display: flex;
-    gap: 10px;
-}
 .basket-card .actions button {
-    background: none;
     border: none;
+    background: none;
     color: #007bff;
     cursor: pointer;
 }
+
+.buttons{
+    display: inline-flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
 .basket-card-summary {
     text-align: right;
     margin-top: 20px;
@@ -90,44 +105,95 @@
     color: #000;
 }
 
-@media (max-width: 768px) {
-    .cart-container {
-        padding: 15px;
+@media (max-width: 550px) {
+   
+    .basket-card .content h3{
+        font-size: 1rem;
     }
-    .cart-item {
+    .basket-card .content p{
+        font-size: 0.6rem;
+    }
+    .basket-card img{
+            width: 100px;
+            height: 100%;
+            object-fit: cover;
+    }
+    .basket-card{
+        background: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        display: flex;
+        height: 150px; 
+    }
+    .basket-card .actions {
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: 10px;
+        font-size: 1rem;
     }
-    .cart-item img {
-        width: 80px;
-        height: 80px;
+    .basket-card .actions .price span{
+        font-weight: bold;
+        color: #e63946;
+        font-size: 1rem;
+        margin-bottom: 10px;
+        
     }
-    .cart-item-details {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-    .cart-item-actions {
-        align-items: flex-start;
-    }
-    .cart-summary {
-        text-align: left;
-    }
-    .cart-buttons {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .cart-buttons button {
-        margin: 10px 0;
-        width: 100%;
+    .basket-card .actions button {
+        font-size: 0.8rem;
     }
 }
 
-@media (max-width: 480px) {
-    .basket-card img {
-        width: 200px;
-        height: 200px;
+@media (max-width: 414px) {
+
+    .basket-card .content h3{
+        font-size: 0.8rem;
     }
-    .basket-card .actions .quantity input {
-        width: 40px;
+    .basket-card .content p{
+        font-size: 0.5rem;
+    }
+    .basket-card img{
+            width: 80px;
+            height: 100%;
+            object-fit: cover;
+    }
+    .basket-card{
+        background: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        display: flex;
+        height: 120px; 
+    }
+    .basket-card .actions {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: 5px;
+        font-size: 0.6rem;
+    }
+    .basket-card .actions .price span{
+        font-weight: bold;
+        color: #e63946;
+        font-size: 0.6rem;
+        margin-bottom: 10px;
+        
+    }
+    .basket-card .actions button {
+        font-size: 0.6rem;
+    }
+    .basket-card-buttons button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        width: 220vw;
+        cursor: pointer;
+        font-size: 0.8rem;
+    }
+    .basket-card-buttons{
+        display: flex;
+        justify-content: center;
+        gap: 0.6rem;
     }
 }

@@ -10,6 +10,7 @@ body {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    justify-content: space-between;
 }
 
 /* Header */
@@ -17,9 +18,8 @@ body {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     position: sticky;
-    top: 0;
-    z-index: 1000;
     padding: 1rem 0;
+    display: flex;
 }
 
 .header .logo {
@@ -38,6 +38,7 @@ body {
     text-decoration: none;
     color: #333;
     transition: color 0.3s;
+    /* display: none; */
 }
 
 .header .nav a:hover {
