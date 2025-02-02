@@ -1,0 +1,202 @@
+.dishes-basket{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.basket-card{
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    height: 200px;
+}
+
+.basket-card .content {
+    margin-left: 10px;
+    padding-right: 10px;
+}
+
+.basket-card .content h3 {
+    font-size: 1.25rem;
+}
+
+.basket-card .content p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.basket-card img{
+    width: 20%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.basket-card .actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 10px;
+}
+.basket-card .actions .price {
+    text-align: left;
+}
+.basket-card .actions .price span{
+    font-weight: bold;
+    color: #e63946;
+    font-size: 1.2rem;
+}
+.basket-card .actions .quantity {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.basket-card .actions .quantity input {
+    width: 5vw;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.basket-card .actions button {
+    border: none;
+    background: none;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.buttons{
+    display: inline-flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.basket-card-summary {
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.basket-card-summary p {
+    margin: 5px 0;
+}
+.basket-card-summary p strong{
+    color:  #e63946;
+}
+
+.basket-card-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+.basket-card-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+.basket-card-buttons .checkout {
+    background-color: #e63946;
+    color: #fff;
+}
+.basket-card-buttons .quick-order {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+@media (max-width: 550px) {
+   
+    .basket-card .content h3{
+        font-size: 1rem;
+    }
+    .basket-card .content p{
+        font-size: 0.6rem;
+    }
+    .basket-card img{
+            width: 100px;
+            height: 100%;
+            object-fit: cover;
+    }
+    .basket-card{
+        background: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        display: flex;
+        height: 150px; 
+    }
+    .basket-card .actions {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: 10px;
+        font-size: 1rem;
+    }
+    .basket-card .actions .price span{
+        font-weight: bold;
+        color: #e63946;
+        font-size: 1rem;
+        margin-bottom: 10px;
+        
+    }
+    .basket-card .actions button {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 414px) {
+
+    .basket-card .content h3{
+        font-size: 0.8rem;
+    }
+    .basket-card .content p{
+        font-size: 0.5rem;
+    }
+    .basket-card img{
+            width: 80px;
+            height: 100%;
+            object-fit: cover;
+    }
+    .basket-card{
+        background: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        display: flex;
+        height: 120px; 
+    }
+    .basket-card .actions {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: 5px;
+        font-size: 0.6rem;
+    }
+    .basket-card .actions .price span{
+        font-weight: bold;
+        color: #e63946;
+        font-size: 0.6rem;
+        margin-bottom: 10px;
+        
+    }
+    .basket-card .actions .quantity input{
+        height: 1.5vh;
+    }
+    .basket-card .actions button {
+        font-size: 0.6rem;
+    }
+    .basket-card-buttons button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        width: 220vw;
+        cursor: pointer;
+        font-size: 0.8rem;
+    }
+    .basket-card-buttons{
+        display: flex;
+        justify-content: center;
+        gap: 0.6rem;
+    }
+}

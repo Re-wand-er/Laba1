@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Корзина товаров</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../styles/style_basket.css" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+
+        <nav class="nav">
+        <a href="../index.html" class="logo">Foodie</a>
+        <!-- Навигация -->
+
+        
+          <a href="../pages/menu.html">Меню</a>
+          <a href="#about">О нас</a>
+          <a href="#contact">Контактная информация</a>
+        </nav>
+      </div>
+    </header>
+
+    <section>
+      <div class="container">
+        <h2>Заказанные блюда:</h2>
+        <div class="dishes-basket">
+          <!-- Card Example -->
+          <div class="basket-card">
+
+              <img 
+              src="/website/assets/images/cheese_pizza.jpg"
+              alt='Пицца "4 сыра"'
+              />
+            
+            <div class="content">
+              <h3>Пицца "4 сыра"</h3>
+              <p>Изысканная свежая пицца с великолепными ингредиентами.</p>
+            </div>
+
+            <div class="actions">
+              <div class="price">Цена: <span>25.00 BYN</span></div>
+              <div class="quantity">
+                Количество: <input type="number" value="1" min="1" step="1" />
+              </div>
+              <div class="price">Итог: <span>25.00 BYN</span></div>
+              <div class="buttons">
+                <button>Удалить</button>
+                <button>Отложить</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="basket-card">
+            <img
+              src="/website/assets/images/tom_yam_soup.jpg"
+              alt='Суп "Том Ям"'
+            />
+            <div class="content">
+              <h3>Суп "Том Ям"</h3>
+              <p>
+                Острый тайский суп с креветками, грибами, кокосовым молоком и
+                лемонграссом.
+              </p>
+            </div>
+            <div class="actions">
+              <div class="price">Цена: <span>18.00 BYN</span></div>
+              <div class="quantity">
+                Количество: <input type="number" value="2" min="1" step="1" />
+              </div>
+              <div class="price">Итог: <span>36.00 BYN</span></div>
+              <div class="buttons">
+                <button>Удалить</button>
+                <button>Отложить</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="basket-card">
+            <img
+              src="/website/assets/images/carbonara.jpg"
+              alt='Паста "Карбонара"'
+            />
+
+            <div class="content">
+              <h3>Паста "Карбонара"</h3>
+              <p>Спагетти с беконом, сливочным соусом, яйцом и пармезаном.</p>
+            </div>
+
+            <div class="actions">
+                <div class="price">Цена: <span>20.00 BYN</span></div>
+                <div class="quantity">
+                  Количество: <input type="number" value="1" min="1" step="1" />
+                </div>
+                <div class="price">Итог: <span>20.00 BYN</span></div>
+                <div class="buttons">
+                  <button>Удалить</button>
+                  <button>Отложить</button>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="basket-card-summary">
+          <p>Количество блюд: <strong>4 шт.</strong></p>
+          <p>Товаров на: <strong>81.00 BYN</strong></p>
+        </div>
+
+        <!-- Buttons Section -->
+        <div class="basket-card-buttons">
+          <button class="quick-order">Заказ в 1 клик</button>
+          <button class="checkout">Оформить заказ</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2>О нас</h2>
+        <p>
+          В Foodie мы заботимся о доставке самых свежих и вкусных блюд к вашей
+          двери. Благодаря широкому выбору вариантов мы заботимся о том, чтобы
+          каждый нашел что-то для себя.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 Foodie. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
