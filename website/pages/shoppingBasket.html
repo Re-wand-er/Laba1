@@ -12,15 +12,21 @@
     <header class="header">
       <div class="container">
 
-        <nav class="nav">
-        <a href="../index.html" class="logo">Foodie</a>
         <!-- Навигация -->
-
-        
-          <a href="../pages/menu.html">Меню</a>
-          <a href="#about">О нас</a>
-          <a href="#contact">Контактная информация</a>
+        <nav class="nav">
+          <a href="../index.html" class="logo">Foodie</a>
+          <input id="menu__toggle" type="checkbox" />
+          <label class="menu__btn" for="menu__toggle">
+              <span></span>
+          </label>
+          <ul class="menu__box">
+              <li><a class="menu__item" href="../index.html">Главная</a></li>
+              <li><a class="menu__item" href="../pages/menu.html">Меню</a></li>
+              <li><a class="menu__item" href="../pages/shoppingBasket.html">Корзина</a></li>
+              <li><a class="menu__item" href="#about">О нас</a></li>
+          </ul>
         </nav>
+
       </div>
     </header>
 
@@ -44,7 +50,7 @@
             <div class="actions">
               <div class="price">Цена: <span>25.00 BYN</span></div>
               <div class="quantity">
-                Количество: <input type="number" value="1" min="1" step="1" />
+                Количество: <input type="number" value="1" min="1" step="1" max="9999"/>
               </div>
               <div class="price">Итог: <span>25.00 BYN</span></div>
               <div class="buttons">
@@ -52,6 +58,7 @@
                 <button>Отложить</button>
               </div>
             </div>
+          
           </div>
 
           <div class="basket-card">
@@ -69,7 +76,7 @@
             <div class="actions">
               <div class="price">Цена: <span>18.00 BYN</span></div>
               <div class="quantity">
-                Количество: <input type="number" value="2" min="1" step="1" />
+                Количество: <input type="number" value="2" min="1" step="1" max="9999"/>
               </div>
               <div class="price">Итог: <span>36.00 BYN</span></div>
               <div class="buttons">
@@ -93,7 +100,10 @@
             <div class="actions">
                 <div class="price">Цена: <span>20.00 BYN</span></div>
                 <div class="quantity">
-                  Количество: <input type="number" value="1" min="1" step="1" />
+                  Количество: 
+                  <div class="right-alignment">
+                    <input type="number" value="1" min="1" step="1" max="9999"/>
+                  </div>
                 </div>
                 <div class="price">Итог: <span>20.00 BYN</span></div>
                 <div class="buttons">
@@ -105,8 +115,8 @@
         </div>
 
         <div class="basket-card-summary">
-          <p>Количество блюд: <strong>4 шт.</strong></p>
-          <p>Товаров на: <strong>81.00 BYN</strong></p>
+          <p>Количество блюд: <strong class="red-color">4 шт.</strong></p>
+          <p>Товаров на: <strong class="red-color">81.00 BYN</strong></p>
         </div>
 
         <!-- Buttons Section -->
