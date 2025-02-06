@@ -22,9 +22,15 @@ body {
     display: flex;
 }
 
-.header .nav {
+.header .nav{
+    display: flex;
+}
+
+.header .nav .menu__box{
     display: flex;
     gap: 1rem;
+    align-items: center;
+    margin-left: auto;
 }
 
 .header .nav .logo {
@@ -198,3 +204,105 @@ body {
     text-align: center;
 }
 
+  /* #menu__toggle{
+    display: none;
+  } */
+   /* Стили для десктопной версии */
+   .menu__box {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu__item {
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+/* Скрываем гамбургер на больших экранах */
+.menu__btn,
+#menu__toggle {
+    display: none;
+}
+
+@media (max-width: 575px){
+    
+    .menu__box {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column; 
+        position: fixed;
+        padding-top: 25px;
+        top: 0;
+        left: -100%; /* Скрываем за пределами экрана */
+        width: 250px;
+        height: 100%;
+        background: #ffffff;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+        transition: left 0.3s ease-in-out;
+        z-index: 999;
+    }
+
+    .menu__item {
+        font-size: 20px;
+        color: #333;
+    }
+
+    .menu__btn {
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .menu__btn > span,
+    .menu__btn > span::before,
+    .menu__btn > span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: #000;
+        transition: all 0.3s;
+    }
+
+    .menu__btn > span::before {
+        content: '';
+        top: -8px;
+    }
+
+    .menu__btn > span::after {
+        content: '';
+        top: 8px;
+    }
+
+    #menu__toggle:checked ~ .menu__btn > span {
+        transform: rotate(45deg);
+    }
+
+    #menu__toggle:checked ~ .menu__btn > span::before {
+        top: 0;
+        transform: rotate(0);
+    }
+
+    #menu__toggle:checked ~ .menu__btn > span::after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+
+    #menu__toggle:checked ~ .menu__box {
+        visibility: visible;
+        left: 0;
+    }
+}

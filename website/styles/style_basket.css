@@ -14,7 +14,8 @@
 
 .basket-card .content {
     margin-left: 10px;
-    padding-right: 10px;
+    margin-right: auto;
+    padding-right: 5px;
 }
 
 .basket-card .content h3 {
@@ -39,21 +40,25 @@
     margin-left: auto;
     margin-right: 10px;
 }
+
 .basket-card .actions .price {
     text-align: left;
 }
+
 .basket-card .actions .price span{
     font-weight: bold;
     color: #e63946;
     font-size: 1.2rem;
 }
+
 .basket-card .actions .quantity {
     display: flex;
     align-items: center;
     justify-content: left;
 }
+
 .basket-card .actions .quantity input {
-    width: 5vw;
+    width: 50px;
     text-align: center;
     margin-left: 5px;
 }
@@ -76,11 +81,13 @@
     margin-top: 20px;
     margin-right: 10px;
 }
+
 .basket-card-summary p {
     margin: 5px 0;
 }
-.basket-card-summary p strong{
-    color:  #e63946;
+
+.red-color{
+   color: #e63946; 
 }
 
 .basket-card-buttons {
@@ -88,6 +95,7 @@
     justify-content: flex-end;
     margin-top: 20px;
 }
+
 .basket-card-buttons button {
     padding: 10px 20px;
     border: none;
@@ -96,17 +104,22 @@
     font-size: 16px;
     margin-left: 10px;
 }
+
 .basket-card-buttons .checkout {
     background-color: #e63946;
     color: #fff;
 }
+
 .basket-card-buttons .quick-order {
     background-color: #f0f0f0;
     color: #000;
 }
 
 @media (max-width: 550px) {
-   
+    .basket-card .actions .quantity input{
+        width: 5vw;
+    }
+
     .basket-card .content h3{
         font-size: 1rem;
     }
@@ -131,7 +144,7 @@
         justify-content: center;
         margin-left: auto;
         margin-right: 10px;
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
     .basket-card .actions .price span{
         font-weight: bold;
@@ -151,7 +164,7 @@
         font-size: 0.8rem;
     }
     .basket-card .content p{
-        font-size: 0.5rem;
+        font-size: 0.65rem;
     }
     .basket-card img{
             width: 80px;
@@ -171,17 +184,18 @@
         justify-content: center;
         margin-left: auto;
         margin-right: 5px;
-        font-size: 0.6rem;
+        font-size: 0.7rem;
     }
     .basket-card .actions .price span{
         font-weight: bold;
         color: #e63946;
-        font-size: 0.6rem;
+        font-size: 0.8rem;
         margin-bottom: 10px;
-        
     }
     .basket-card .actions .quantity input{
-        height: 1.5vh;
+        height: 1vh;
+        width: 3vw;
+        font-size: 0.9em;
     }
     .basket-card .actions button {
         font-size: 0.6rem;
@@ -198,5 +212,21 @@
         display: flex;
         justify-content: center;
         gap: 0.6rem;
+    }
+
+}
+
+/*Возможно будет*/
+@media (max-width: 360px) {
+    .basket-card .content h3{
+        font-size: 0.7rem;
+    }
+    .basket-card .content p{
+        display: none;
+    }
+    .basket-card .content{
+        display: inline-flex;
+        align-items: center;
+        text-align: center;
     }
 }
