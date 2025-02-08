@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Оформление заказов</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../styles/style_order.css" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+
+        <!-- Навигация -->
+        <nav class="nav">
+          <a href="../index.html" class="logo">Foodie</a>
+          <input id="menu__toggle" type="checkbox" />
+          <label class="menu__btn" for="menu__toggle">
+              <span></span>
+          </label>
+          <ul class="menu__box">
+              <li><a class="menu__item" href="../index.html">Главная</a></li>
+              <li><a class="menu__item" href="../pages/menu.html">Меню</a></li>
+              <li><a class="menu__item" href="../pages/shoppingBasket.html">Корзина</a></li>
+              <li><a class="menu__item" href="../pages/order.html">Оформление</a></li>
+              <li><a class="menu__item" href="../pages/contacts.html">Контакты</a></li>
+          </ul>
+        </nav>
+
+      </div>
+    </header>
+
+    <section>
+        <div class="order-page">
+            <h1>Оформление заказа</h1>
+            <div class="order-container">
+             
+              <div class="order-form">
+                <h2>Детали доставки</h2>
+                <form action="#" method="POST">
+                  <label for="name">Имя:</label>
+                  <input type="text" id="name" name="name" placeholder="Введите ваше имя" required />
+          
+                  <label for="phone">Телефон:</label>
+                  <input type="tel" id="phone" name="phone" placeholder="Введите ваш телефон" required />
+          
+                  <label for="address">Адрес доставки:</label>
+                  <textarea id="address" name="address" rows="3" placeholder="Введите ваш адрес (улица, дом, квартира)" required></textarea>
+          
+                  <label for="entrance">Подъезд:</label>
+                  <input type="text" id="entrance" name="entrance" placeholder="Введите номер подъезда" />
+          
+                  <label for="floor">Этаж:</label>
+                  <input type="text" id="floor" name="floor" placeholder="Введите этаж" />
+          
+                  <label for="intercom">Код домофона:</label>
+                  <input type="text" id="intercom" name="intercom" placeholder="Введите код домофона (если есть)" />
+          
+                  <label for="delivery-time">Время доставки:</label>
+                  <select id="delivery-time" name="delivery-time" required>
+                    <option value="asap">Как можно скорее</option>
+                    <option value="8:00">8:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="20:00">20:00</option>
+                    <option value="22:00">22:00</option>
+                  </select>
+          
+                  <label for="payment-method">Способ оплаты:</label>
+                  <select id="payment-method" name="payment-method" required>
+                    <option value="card">Картой онлайн</option>
+                    <option value="cash">Наличными курьеру</option>
+                    <option value="terminal">Картой через терминал</option>
+                  </select>
+          
+                  <label for="comment">Комментарий:</label>
+                  <textarea id="comment" name="comment" rows="2" placeholder="Комментарий к заказу (например, «не звонить, ребенок спит»)"></textarea>
+          
+                  <button type="submit" class="btn-submit">Оформить заказ</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+          <h2>О нас</h2>
+          <p>
+            В Foodie мы заботимся о доставке самых свежих и вкусных блюд к вашей
+            двери. Благодаря широкому выбору вариантов мы заботимся о том, чтобы
+            каждый нашел что-то для себя.
+          </p>
+        </div>
+      </section>
+  
+      <footer class="footer">
+        <div class="container">
+          <p>&copy; 2025 Foodie. All Rights Reserved.</p>
+        </div>
+      </footer>
+
+  </body>
+</html>
