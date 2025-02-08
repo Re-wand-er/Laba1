@@ -13,6 +13,10 @@ body {
     justify-content: space-between;
 }
 
+.container > h1{
+    font-size: 30px;
+}
+
 /* Header */
 .header {
     background-color: #fff;
@@ -304,5 +308,9 @@ body {
     #menu__toggle:checked ~ .menu__box {
         visibility: visible;
         left: 0;
+    }
+
+    .container > h1{
+        font-size: 20px;
     }
 }

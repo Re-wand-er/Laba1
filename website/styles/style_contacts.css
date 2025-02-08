@@ -1,0 +1,47 @@
+.map {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.map iframe {
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.contact-info {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+.contact-row {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 10px;
+}
+
+.contact-item {
+    flex: 1;
+    text-align: left;
+    margin: 3px;
+}
+
+.contact-item h3,
+.contact-item h4 {
+    margin: 0 0 5px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.contact-item p {
+    margin: 5px 0;
+    color: #8ab934;
+    font-size: 16px;
+    word-break: break-word;
+}
