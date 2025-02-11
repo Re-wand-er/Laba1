@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,7 +23,8 @@
               <li><a class="menu__item" href="../index.html">Главная</a></li>
               <li><a class="menu__item" href="../pages/menu.html">Меню</a></li>
               <li><a class="menu__item" href="../pages/shoppingBasket.html">Корзина</a></li>
-              <li><a class="menu__item" href="#about">О нас</a></li>
+              <li><a class="menu__item" href="../pages/order.html">Оформление</a></li>
+              <li><a class="menu__item" href="../pages/contacts.html">Контакты</a></li>
           </ul>
         </nav>
 
@@ -32,7 +33,7 @@
 
     <section>
       <div class="container">
-        <h2>Заказанные блюда:</h2>
+        <h1>Заказанные блюда:</h1>
         <div class="dishes-basket">
           <!-- Card Example -->
           <div class="basket-card">
@@ -121,13 +122,16 @@
 
         <!-- Buttons Section -->
         <div class="basket-card-buttons">
-          <button class="quick-order">Заказ в 1 клик</button>
-          <button class="checkout">Оформить заказ</button>
+          <form action="../pages/menu.html">
+            <button class="quick-order">Заказ в 1 клик</button>
+          </form>
+          <form action="../pages/order.html">
+            <button class="checkout">Оформить заказ</button>
+          </form>
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about">
       <div class="container">
         <h2>О нас</h2>

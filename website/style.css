@@ -3,8 +3,12 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     line-height: 1.6;
+<<<<<<< HEAD
     background-color: #f9f9f9;
     padding-top: 60px;
+=======
+    background-color: #fff;
+>>>>>>> main
 }
 
 .container {
@@ -14,10 +18,15 @@ body {
     justify-content: space-between;
 }
 
+.container > h1{
+    font-size: 25px;
+}
+
 /* Header */
 .header {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+<<<<<<< HEAD
     position: fixed;
    
     top: 0; /* Прижимаем к верхнему краю */
@@ -27,6 +36,8 @@ body {
     padding: 1rem 0;
     display: flex;
     justify-content: center; /* Центрируем содержимое */
+=======
+>>>>>>> main
     padding: 1rem 0;
     display: flex;
 }
@@ -69,7 +80,7 @@ body {
 }
 
 .account{
-    display: fles;
+    display: flex;
     float: right;
 }
 
@@ -189,14 +200,14 @@ body {
 
 /* About Section */
 .about {
-    padding: 2rem 1rem;
+    padding-bottom: 20px;
     background-color: #f9f9f9;
     text-align: center;
 }
 
 .about h2 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 5px;
 }
 
 .about p {
@@ -213,11 +224,7 @@ body {
     text-align: center;
 }
 
-  /* #menu__toggle{
-    display: none;
-  } */
-   /* Стили для десктопной версии */
-   .menu__box {
+.menu__box {
     display: flex;
     justify-content: flex-end;
     list-style: none;
@@ -266,7 +273,7 @@ body {
     .menu__btn {
         display: flex;
         align-items: center;
-        position: fixed;
+        position: absolute;
         top: 20px;
         right: 20px;
         width: 26px;
@@ -313,5 +320,9 @@ body {
     #menu__toggle:checked ~ .menu__box {
         visibility: visible;
         left: 0;
+    }
+
+    .container > h1{
+        font-size: 20px;
     }
 }
