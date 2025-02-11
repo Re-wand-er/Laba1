@@ -3,12 +3,9 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-<<<<<<< HEAD
     background-color: #f9f9f9;
     padding-top: 60px;
-=======
-    background-color: #fff;
->>>>>>> main
+
 }
 
 .container {
@@ -26,9 +23,7 @@ body {
 .header {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-<<<<<<< HEAD
     position: fixed;
-   
     top: 0; /* Прижимаем к верхнему краю */
     left: 0; /* Прижимаем к левому краю */
     width: 100%; /* Растягиваем на всю ширину */
@@ -36,8 +31,6 @@ body {
     padding: 1rem 0;
     display: flex;
     justify-content: center; /* Центрируем содержимое */
-=======
->>>>>>> main
     padding: 1rem 0;
     display: flex;
 }
@@ -141,10 +134,14 @@ body {
 
 .card {
     background: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s;
+    display: flex; /* Добавляем Flexbox */
+    flex-direction: column; /* Элементы располагаются вертикально */
+    height: 100%; /* Занимает всю доступную высоту */
+    
 }
 
 .card:hover {
@@ -174,25 +171,29 @@ body {
 .card-footer {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin: 0 10px 0 1rem; /* Отступ снизу 10px, слева и справа 10px */
+    align-items: flex-end;
+    margin-top: auto;
+    padding-bottom: 15px;
+    padding-left: 5%; 
+    padding-right: 5%; 
 }
 
-.card-footer .price {
-    color: #e63946;
-    font-weight: bold;
-    font-size: 1.25rem;
-}
+    .card-footer .price {
+        color: #e63946;
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
 
-.card-footer .add-to-cart {
-    background-color: #e63946;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+    .card-footer .add-to-cart {
+        background-color: #e63946;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
 
 .card-footer .add-to-cart:hover {
     background-color: #d62839;
