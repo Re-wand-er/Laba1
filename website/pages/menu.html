@@ -17,8 +17,21 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
+            padding-top: 60px; /* Пример: 60px - это высота вашего header */
         }
-
+        
+        .header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: fixed; /* Фиксированная позиция */
+            top: 0; /* Прижимаем к верхнему краю */
+            left: 0; /* Прижимаем к левому краю */
+            width: 100%; /* Растягиваем на всю ширину */
+            z-index: 1000; /* Убедимся, что шапка поверх других элементов */
+            padding: 1rem 0;
+            display: flex;
+            justify-content: center; /* Центрируем содержимое */
+        }
         .menu-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -65,19 +78,19 @@
         }
 
         .dish-card {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  display: flex; /* Добавляем Flexbox */
-  flex-direction: column; /* Элементы располагаются вертикально */
-  height: 100%; /* Занимает всю доступную высоту */
-}
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        display: flex; /* Добавляем Flexbox */
+        flex-direction: column; /* Элементы располагаются вертикально */
+        height: 100%; /* Занимает всю доступную высоту */
+        }
 
-.dish-info {
-  padding: 15px;
-  flex: 1; /* Растягиваем блок, чтобы он занимал всё доступное пространство */
-}
+        .dish-info {
+        padding: 15px;
+        flex: 1; /* Растягиваем блок, чтобы он занимал всё доступное пространство */
+        }
 
         .dish-image {
             height: 180px;
@@ -107,18 +120,19 @@
         }
 
         @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
+            .menu-container { /* Важно: Обращаемся к контейнеру sidebar и content */
+                flex-direction: column; /* Располагаем sidebar и content друг под другом */
             }
 
             .sidebar {
-                width: 100%;
+                width: 100%; /* Сайдбар занимает всю ширину */
             }
 
             .content {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr; /* Каждая карточка занимает всю ширину */
             }
         }
+
 
         @media (max-width: 480px) {
             .content {
@@ -191,12 +205,13 @@
                 <li>Десерты</li>
             </ul>
         </aside>
-
+    
         <main class="content">
             <!-- Карточка блюда -->
             <div class="dish-card">
                 <div class="dish-image">
-                    <img src="/placeholder.svg?height=180&width=250" alt="Пицца Маргарита">
+                    <img src="../assets/images/margherita.jpg">
+                    
                 </div>
                 <div class="dish-info">
                     <div class="dish-name">Пицца Маргарита</div>
@@ -212,7 +227,7 @@
             <!-- Дублируем карточки для примера -->
             <div class="dish-card">
                 <div class="dish-image">
-                    <img src="/placeholder.svg?height=180&width=250" alt="Пицца Пепперони">
+                    <img src="../assets/images/tom_yam_soup.jpg" alt="Пицца Пепперони">
                 </div>
                 <div class="dish-info">
                     <div class="dish-name">Пицца Пепперони</div>

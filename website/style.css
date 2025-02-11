@@ -4,6 +4,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #f9f9f9;
+    padding-top: 60px;
 }
 
 .container {
@@ -17,7 +18,15 @@ body {
 .header {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    position: sticky;
+    position: fixed;
+   
+    top: 0; /* Прижимаем к верхнему краю */
+    left: 0; /* Прижимаем к левому краю */
+    width: 100%; /* Растягиваем на всю ширину */
+    z-index: 1000; /* Убедимся, что шапка поверх других элементов */
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center; /* Центрируем содержимое */
     padding: 1rem 0;
     display: flex;
 }
