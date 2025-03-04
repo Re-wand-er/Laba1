@@ -257,7 +257,7 @@ body {
         position: fixed;
         padding-top: 25px;
         top: 0;
-        left: -100%; /* Скрываем за пределами экрана */
+        left: -100%;
         width: 250px;
         height: 100%;
         background: #ffffff;
