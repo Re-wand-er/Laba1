@@ -33,7 +33,17 @@
         </div>
     </header>
 
-    <div class="news-page">
+  <div class="news-page">
+
+    <div class="search-sort">
+      <input type="text" id="searchInput" placeholder="Поиск по новостям..." />
+      <select id="sortSelect">
+        <option value="newest">Сначала новые</option>
+        <option value="oldest">Сначала старые</option>
+        <option value="title">По заголовку</option>
+      </select>
+    </div>
+
     <div class="news-form">
       <form id="newsForm">
         <div class="form-group">
@@ -53,15 +63,6 @@
 
         <button type="submit" id="submitBtn">Добавить новость</button>
       </form>
-    </div>
-
-    <div class="search-sort">
-      <input type="text" id="searchInput" placeholder="Поиск по новостям..." />
-      <select id="sortSelect">
-        <option value="newest">Сначала новые</option>
-        <option value="oldest">Сначала старые</option>
-        <option value="title">По заголовку</option>
-      </select>
     </div>
 
     <div id="newsContainer"></div>
