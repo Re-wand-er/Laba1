@@ -141,7 +141,7 @@ body {
     display: flex; /* Добавляем Flexbox */
     flex-direction: column; /* Элементы располагаются вертикально */
     height: 100%; /* Занимает всю доступную высоту */
-    
+
 }
 
 .card:hover {
@@ -174,8 +174,8 @@ body {
     align-items: flex-end;
     margin-top: auto;
     padding-bottom: 15px;
-    padding-left: 5%; 
-    padding-right: 5%; 
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
     .card-footer .price {
@@ -248,12 +248,12 @@ body {
 }
 
 @media (max-width: 575px){
-    
+
     .menu__box {
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;
-        flex-direction: column; 
+        flex-direction: column;
         position: fixed;
         padding-top: 25px;
         top: 0;

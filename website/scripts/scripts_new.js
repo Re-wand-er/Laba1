@@ -1,4 +1,6 @@
 // DOM Elements
+const addNewsButton = document.getElementById("addNewsButton");
+const newsFormContainer = document.getElementById("newsFormContainer");
 const newsForm = document.getElementById("newsForm");
 const titleInput = document.getElementById("title");
 const contentInput = document.getElementById("content");
@@ -6,14 +8,30 @@ const categoryInput = document.getElementById("category");
 const searchInput = document.getElementById("searchInput");
 const sortSelect = document.getElementById("sortSelect");
 const newsContainer = document.getElementById("newsContainer");
-let currentNewsId = null;
+const cancelBtn = document.getElementById("cancelBtn");
+
+let currentNewsId = null; // Для хранения ID редактируемой новости
 
 // Initial load
 document.addEventListener("DOMContentLoaded", () => {
   renderNews(getAllNews());
 });
 
-// Form submit handler
+// Открытие формы
+addNewsButton.addEventListener("click", () => {
+  newsFormContainer.style.display = "block";
+  newsForm.reset();
+  currentNewsId = null; // Сброс ID редактируемой новости
+});
+
+// Закрытие формы
+cancelBtn.addEventListener("click", () => {
+  newsFormContainer.style.display = "none";
+  newsForm.reset();
+  currentNewsId = null;
+});
+
+// Обработка отправки формы
 newsForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -27,15 +45,15 @@ newsForm.addEventListener("submit", (e) => {
 
   if (currentNewsId) {
     updateNews(currentNewsId, newsItem);
-    currentNewsId = null;
   } else {
     addNews(newsItem);
   }
 
+  newsFormContainer.style.display = "none";
   newsForm.reset();
 });
 
-// Search and sort handlers
+// Поиск и сортировка
 searchInput.addEventListener("input", (e) => {
   renderNews(filterNews(e.target.value));
 });
@@ -44,7 +62,7 @@ sortSelect.addEventListener("change", () => {
   renderNews(sortNews(getAllNews()));
 });
 
-// News CRUD operations
+// CRUD операции
 function getAllNews() {
   return JSON.parse(localStorage.getItem("news") || "[]");
 }
@@ -60,28 +78,37 @@ function addNews(newsItem) {
   renderNews(sortNews(news));
 }
 
+// Функция удаления новости
 function deleteNews(id) {
-  const news = getAllNews().filter((item) => item.id !== id);
-  saveNews(news);
-  renderNews(sortNews(news));
+  // 1. Получаем все новости из localStorage
+  const news = getAllNews();
+
+  // 2. Фильтруем новости, оставляя только те, у которых ID не совпадает с переданным ID
+  const updatedNews = news.filter((item) => item.id !== id);
+
+  // 3. Сохраняем обновленный массив новостей в localStorage
+  saveNews(updatedNews);
+
+  // 4. Отрисовываем обновленный список новостей на странице
+  renderNews(sortNews(updatedNews));
 }
+
+
 
 function updateNews(id, updatedItem) {
-  const news = getAllNews().map((item) =>
-    item.id === id ? { ...updatedItem, id } : item
-  );
+  const news = getAllNews().map((item) => (item.id === id ? { ...updatedItem, id } : item));
   saveNews(news);
   renderNews(sortNews(news));
 }
 
-// News filtering and sorting
+// Фильтрация и сортировка
 function filterNews(query) {
   const search = query.toLowerCase();
   return getAllNews().filter(
     (item) =>
       item.title.toLowerCase().includes(search) ||
       item.content.toLowerCase().includes(search) ||
-      (item.category && item.category.toLowerCase().includes(search))
+      (item.category && item.category.toLowerCase().includes(search)),
   );
 }
 
@@ -98,7 +125,7 @@ function sortNews(news) {
   }
 }
 
-// Render news items
+// Отрисовка новостей
 function renderNews(newsArray) {
   newsContainer.innerHTML = "";
 
@@ -106,30 +133,29 @@ function renderNews(newsArray) {
     const newsEl = document.createElement("div");
     newsEl.className = "news-item";
     newsEl.innerHTML = `
-              <div class="news-meta">
-                  ${item.date} | 
-                  ${item.category ? `Категория: ${item.category}` : ""}
-              </div>
-              <h3>${item.title}</h3>
-              <p>${item.content}</p>
-              <div class="news-controls">
-                  <button onclick="editNewsHandler('${
-                    item.id
-                  }')">Редактировать</button>
-                  <button class="danger" onclick="deleteNews('${
-                    item.id
-                  }')">Удалить</button>
-              </div>
-          `;
+      <div class="news-meta">
+        ${item.date} |
+        ${item.category ? `Категория: ${item.category}` : ""}
+      </div>
+      <h3>${item.title}</h3>
+      <p>${item.content}</p>
+      <div class="news-controls">
+        <button onclick="editNewsHandler('${item.id}')">Редактировать</button>
+        <button class="danger" onclick="deleteNews('${item.id}')">Удалить</button>
+      </div>
+    `;
     newsContainer.appendChild(newsEl);
   });
 }
 
-// Edit news handler
+// Редактирование новости
 window.editNewsHandler = function (id) {
   const newsItem = getAllNews().find((item) => item.id === id);
   titleInput.value = newsItem.title;
   contentInput.value = newsItem.content;
   categoryInput.value = newsItem.category || "";
   currentNewsId = id;
+  newsFormContainer.style.display = "block";
 };
+
+
