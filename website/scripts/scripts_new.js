@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Открытие формы
 addNewsButton.addEventListener("click", () => {
   newsFormContainer.style.display = "block";
+  addNewsButton.style.display = "none";
   newsForm.reset();
   currentNewsId = null; // Сброс ID редактируемой новости
 });
@@ -27,6 +28,7 @@ addNewsButton.addEventListener("click", () => {
 // Закрытие формы
 cancelBtn.addEventListener("click", () => {
   newsFormContainer.style.display = "none";
+  addNewsButton.style.display = "block";
   newsForm.reset();
   currentNewsId = null;
 });
@@ -34,7 +36,7 @@ cancelBtn.addEventListener("click", () => {
 // Обработка отправки формы
 newsForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
+  addNewsButton.style.display = "block";
   const newsItem = {
     title: titleInput.value,
     content: contentInput.value,
@@ -93,8 +95,6 @@ function deleteNews(id) {
   renderNews(sortNews(updatedNews));
 }
 
-
-
 function updateNews(id, updatedItem) {
   const news = getAllNews().map((item) => (item.id === id ? { ...updatedItem, id } : item));
   saveNews(news);
@@ -132,6 +132,7 @@ function renderNews(newsArray) {
   newsArray.forEach((item) => {
     const newsEl = document.createElement("div");
     newsEl.className = "news-item";
+    newsEl.setAttribute("data-id", item.id);
     newsEl.innerHTML = `
       <div class="news-meta">
         ${item.date} |
@@ -150,12 +151,24 @@ function renderNews(newsArray) {
 
 // Редактирование новости
 window.editNewsHandler = function (id) {
+  // Находим новость в массиве
   const newsItem = getAllNews().find((item) => item.id === id);
+
+  // Находим соответствующий DOM-элемент новости
+  const newsItemElement = document.querySelector(`.news-item[data-id="${id}"]`);
+  console.log(newsItemElement);
+  if (newsItemElement) {
+    newsItemElement.style.display = "none"; // Скрываем блок новости
+  }
+
+  // Заполняем форму данными новости
   titleInput.value = newsItem.title;
   contentInput.value = newsItem.content;
   categoryInput.value = newsItem.category || "";
+
+  // Сохраняем ID текущей новости для дальнейшего использования
   currentNewsId = id;
+
+  // Отображаем форму редактирования
   newsFormContainer.style.display = "block";
 };
-
-
