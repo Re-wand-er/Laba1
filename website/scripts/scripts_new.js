@@ -30,6 +30,11 @@ cancelBtn.addEventListener("click", () => {
   newsFormContainer.style.display = "none";
   addNewsButton.style.display = "block";
   newsForm.reset();
+  const newsItemElement = document.querySelector(`.news-item[data-id="${currentNewsId}"]`);
+  console.log(newsItemElement);
+  if (newsItemElement) {
+    newsItemElement.style.display = "block"; // Скрываем блок новости
+  }
   currentNewsId = null;
 });
 
