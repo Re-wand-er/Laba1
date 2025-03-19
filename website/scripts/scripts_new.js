@@ -156,6 +156,14 @@ function renderNews(newsArray) {
 
 // Редактирование новости
 window.editNewsHandler = function (id) {
+  // Проверяем, открыта ли уже форма редактирования
+  if (newsFormContainer.style.display === "block") {
+    alert(
+      "Вы уже открыли форму редактирования. Закройте текущую форму, чтобы редактировать другую новость.",
+    );
+    return; // Прерываем выполнение функции, если форма уже открыта
+  }
+
   // Находим новость в массиве
   const newsItem = getAllNews().find((item) => item.id === id);
 
