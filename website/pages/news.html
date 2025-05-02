@@ -9,26 +9,17 @@
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
     <style>
       body {
-        min-height: 100vh; /* Если это есть, удалите или измените */
-        padding-top: 60px; /* Если это есть, удалите или измените */
+        height: 100%; /* Если это есть, удалите или измените */
+        margin: 0 auto; /* Если это есть, удалите или измените */
       }
-
-      .footer {
-        background-color: #333; /* Цвет фона футера */
-        color: white; /* Цвет текста футера */
-        text-align: center; /* Выравнивание текста по центру */
-        padding: 20px 0; /* Отступы внутри футера */
-        margin-top: auto; /* Футер прижимается к низу */
-      }
-
       /* Стили для кнопки "Добавить" */
       #addNewsButton {
-        padding: 6px 16px;
         background-color: #4caf50;
         color: white;
+        padding: 10px 20px;
         border: none;
-        border-radius: 4px;
         cursor: pointer;
+        margin-bottom: 20px;
       }
 
       #addNewsButton:hover {
@@ -88,7 +79,7 @@
 
     <div class="news-page">
       <div class="search-sort">
-        <input type="text" id="searchInput" placeholder="Поиск по новостям..." maxlength="50" />
+        <input type="text" id="searchInput" placeholder="Поиск по новостям..." />
         <select id="sortSelect">
           <option value="newest">Сначала новые</option>
           <option value="oldest">Сначала старые</option>
@@ -106,26 +97,17 @@
           <form id="newsForm">
             <div class="form-group">
               <label for="title">Заголовок:</label>
-              <input type="text" id="title" required maxlength="100" />
-              <!-- Ограничение 100 символов -->
-              <span id="titleCounter"></span>
-              <!-- Счётчик символов -->
+              <input type="text" id="title" required />
             </div>
 
             <div class="form-group">
               <label for="content">Содержание:</label>
-              <textarea id="content" required maxlength="500"></textarea>
-              <!-- Ограничение 500 символов -->
-              <span id="contentCounter"></span>
-              <!-- Счётчик символов -->
+              <textarea id="content" required></textarea>
             </div>
 
             <div class="form-group">
               <label for="category">Категория:</label>
-              <input type="text" id="category" maxlength="50" />
-              <!-- Ограничение 50 символов -->
-              <span id="categoryCounter"></span>
-              <!-- Счётчик символов -->
+              <input type="text" id="category" required/>
             </div>
 
             <button type="submit" id="submitBtn">Добавить новость</button>

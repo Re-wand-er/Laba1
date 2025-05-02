@@ -30,11 +30,6 @@ cancelBtn.addEventListener("click", () => {
   newsFormContainer.style.display = "none";
   addNewsButton.style.display = "block";
   newsForm.reset();
-  const newsItemElement = document.querySelector(`.news-item[data-id="${currentNewsId}"]`);
-  console.log(newsItemElement);
-  if (newsItemElement) {
-    newsItemElement.style.display = "block"; // Скрываем блок новости
-  }
   currentNewsId = null;
 });
 
@@ -43,9 +38,9 @@ newsForm.addEventListener("submit", (e) => {
   e.preventDefault();
   addNewsButton.style.display = "block";
   const newsItem = {
-    title: titleInput.value,
-    content: contentInput.value,
-    category: categoryInput.value,
+    title: titleInput.value.trim(),
+    content: contentInput.value.trim(),
+    category: categoryInput.value.trim(),
     timestamp: Date.now(),
     date: new Date().toLocaleString(),
   };
@@ -136,15 +131,19 @@ function renderNews(newsArray) {
 
   newsArray.forEach((item) => {
     const newsEl = document.createElement("div");
+    title = item.title.trim()
+    content = item.content.trim()
+    category = item.category.trim()
+
     newsEl.className = "news-item";
     newsEl.setAttribute("data-id", item.id);
     newsEl.innerHTML = `
       <div class="news-meta">
         ${item.date} |
-        ${item.category ? `Категория: ${item.category}` : ""}
+        ${item.category ? `Категория: ${category}` : ""}
       </div>
-      <h3>${item.title}</h3>
-      <p>${item.content}</p>
+      <h3>${title}</h3>
+      <p>${content}</p>
       <div class="news-controls">
         <button onclick="editNewsHandler('${item.id}')">Редактировать</button>
         <button class="danger" onclick="deleteNews('${item.id}')">Удалить</button>
@@ -156,14 +155,6 @@ function renderNews(newsArray) {
 
 // Редактирование новости
 window.editNewsHandler = function (id) {
-  // Проверяем, открыта ли уже форма редактирования
-  if (newsFormContainer.style.display === "block") {
-    alert(
-      "Вы уже открыли форму редактирования. Закройте текущую форму, чтобы редактировать другую новость.",
-    );
-    return; // Прерываем выполнение функции, если форма уже открыта
-  }
-
   // Находим новость в массиве
   const newsItem = getAllNews().find((item) => item.id === id);
 
