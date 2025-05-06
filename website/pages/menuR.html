@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foodie - Карусель блюд</title>
+    <!-- Подключаем React и Material UI -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Material UI Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <!-- Material UI Core -->
+    <script src="https://unpkg.com/@mui/material@5.14.10/umd/material-ui.development.js"></script>
+    <style>
+      /* Ваши существующие стили */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f9f9f9;
+        padding-top: 60px;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        justify-content: space-between;
+      }
+
+      /* Добавленные стили для карусели */
+      .food-carousel {
+        max-width: 100%;
+        margin: 40px auto;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        padding: 20px;
+      }
+
+      .carousel-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .carousel-slide {
+        display: none;
+        width: 100%;
+        transition: opacity 0.5s ease;
+      }
+
+      .carousel-slide.active {
+        display: block;
+      }
+
+      .carousel-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+      }
+
+      .carousel-controls {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+      }
+
+      .carousel-button {
+        background-color: rgba(255, 255, 255, 0.7);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .carousel-button:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+
+      .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .carousel-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #ccc;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .carousel-dot.active {
+        background-color: #e63946;
+      }
+
+      .dish-card {
+        padding: 20px;
+      }
+
+      .dish-title {
+        font-size: 1.5rem;
+        margin: 10px 0;
+        color: #333;
+      }
+
+      .dish-description {
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .dish-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem 1rem;
+      }
+
+      .dish-price {
+        font-weight: bold;
+        color: #e63946;
+        font-size: 1.25rem;
+      }
+
+      .order-button {
+        background-color: #e63946;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 1rem;
+      }
+
+      .order-button:hover {
+        background-color: #d62839;
+      }
+
+      .dropdown-container {
+        margin-bottom: 20px;
+      }
+
+      .dropdown-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .dropdown-select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background-color: white;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Адаптивные стили */
+      @media (max-width: 768px) {
+        .carousel-image {
+          height: 300px;
+        }
+
+        .dish-title {
+          font-size: 1.3rem;
+        }
+
+        .dish-description {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 575px) {
+        .carousel-image {
+          height: 250px;
+        }
+
+        .food-carousel {
+          padding: 10px;
+          margin: 20px auto;
+        }
+
+        .dish-card {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <nav class="nav">
+          <a href="../website/index.html" class="logo">Foodie</a>
+          <input id="menu__toggle" type="checkbox" />
+          <label class="menu__btn" for="menu__toggle">
+            <span></span>
+          </label>
+          <ul class="menu__box">
+            <li><a class="menu__item" href="../website/index.html">Главная</a></li>
+            <li><a class="menu__item" href="../website/pages/menu.html">Меню</a></li>
+            <li><a class="menu__item" href="../website/pages/shoppingBasket.html">Корзина</a></li>
+            <li><a class="menu__item" href="../website/pages/order.html">Оформление</a></li>
+            <li><a class="menu__item" href="../website/pages/contacts.html">Контакты</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="carousel-root"></div>
+    </div>
+
+    <!-- Babel-скрипт с React-компонентом -->
+    <script type="text/babel">
+      const { useState, useEffect } = React;
+      const { Card, CardContent, CardActions, Typography, Button } = MaterialUI;
+
+      const dishes = [
+        {
+          id: 1,
+          name: 'Пицца "4 сыра"',
+          description: "Изысканная свежая пицца с великолепными ингредиентами.",
+          price: "25.00 бел. руб.",
+          image: "../website/assets/images/cheese_pizza.jpg",
+        },
+        {
+          id: 2,
+          name: 'Суп "Том Ям"',
+          description:
+            "Острый тайский суп с креветками, грибами, кокосовым молоком и лемонграссом.",
+          price: "18.00 бел. руб.",
+          image: "../website/assets/images/tom_yam_soup.jpg",
+        },
+        {
+          id: 3,
+          name: 'Бургер "Чизбургер"',
+          description:
+            "Сочная говяжья котлета с сыром, салатом, помидором и соусом в мягкой булочке.",
+          price: "15.00 бел. руб.",
+          image: "../website/assets/images/cheeseburger.jpg",
+        },
+        {
+          id: 4,
+          name: 'Салат "Цезарь"',
+          description:
+            'Салат с курицей, листьями айсберга, сухариками, пармезаном и соусом "Цезарь".',
+          price: "14.00 бел. руб.",
+          image: "../website/assets/images/caesar_salad.jpg",
+        },
+      ];
+
+      function FoodCarousel() {
+        const [activeIndex, setActiveIndex] = useState(0);
+        const [autoPlay, setAutoPlay] = useState(true);
+        const [controlOption, setControlOption] = useState("");
+
+        // Автоматическое переключение слайдов
+        useEffect(() => {
+          let interval;
+          if (autoPlay) {
+            interval = setInterval(() => {
+              setActiveIndex((prev) => (prev + 1) % dishes.length);
+            }, 3000);
+          }
+          return () => clearInterval(interval);
+        }, [autoPlay, dishes.length]);
+
+        const handleNext = () => {
+          setActiveIndex((prev) => (prev + 1) % dishes.length);
+        };
+
+        const handlePrev = () => {
+          setActiveIndex((prev) => (prev - 1 + dishes.length) % dishes.length);
+        };
+
+        const handleDotClick = (index) => {
+          setActiveIndex(index);
+        };
+
+        const handleControlChange = (event) => {
+          const value = event.target.value;
+          setControlOption(value);
+
+          switch (value) {
+            case "start":
+              setAutoPlay(true);
+              break;
+            case "stop":
+              setAutoPlay(false);
+              break;
+            case "first":
+              setActiveIndex(0);
+              setAutoPlay(false);
+              break;
+            case "last":
+              setActiveIndex(dishes.length - 1);
+              setAutoPlay(false);
+              break;
+            default:
+              break;
+          }
+        };
+
+        return (
+          <div className="food-carousel">
+            <div className="dropdown-container">
+              <label className="dropdown-label">Управление каруселью:</label>
+              <select
+                className="dropdown-select"
+                value={controlOption}
+                onChange={handleControlChange}
+              >
+                <option value="">Выберите действие</option>
+                <option value="start">Запустить автопрокрутку</option>
+                <option value="stop">Остановить автопрокрутку</option>
+                <option value="first">Перейти к первому слайду</option>
+                <option value="last">Перейти к последнему слайду</option>
+              </select>
+            </div>
+
+            <div className="carousel-container">
+              {dishes.map((dish, index) => (
+                <div
+                  key={dish.id}
+                  className={`carousel-slide ${index === activeIndex ? "active" : ""}`}
+                >
+                  <Card className="dish-card" style={{ boxShadow: "none" }}>
+                    <img src={dish.image} alt={dish.name} className="carousel-image" />
+                    <CardContent style={{ paddingBottom: 0 }}>
+                      <Typography variant="h5" className="dish-title">
+                        {dish.name}
+                      </Typography>
+                      <Typography variant="body2" className="dish-description">
+                        {dish.description}
+                      </Typography>
+                    </CardContent>
+                    <CardActions className="dish-footer">
+                      <Typography variant="h6" className="dish-price">
+                        {dish.price}
+                      </Typography>
+                      <button className="order-button">Заказать</button>
+                    </CardActions>
+                  </Card>
+                </div>
+              ))}
+
+              <div className="carousel-controls">
+                <button className="carousel-button" onClick={handlePrev}>
+                  <span className="material-icons">chevron_left</span>
+                </button>
+                <button className="carousel-button" onClick={handleNext}>
+                  <span className="material-icons">chevron_right</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="carousel-dots">
+              {dishes.map((_, index) => (
+                <div
+                  key={index}
+                  className={`carousel-dot ${index === activeIndex ? "active" : ""}`}
+                  onClick={() => handleDotClick(index)}
+                />
+              ))}
+            </div>
+          </div>
+        );
+      }
+
+      // Рендерим React-компонент
+      const root = ReactDOM.createRoot(document.getElementById("carousel-root"));
+      root.render(<FoodCarousel />);
+    </script>
+  </body>
+</html>
