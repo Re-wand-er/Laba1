@@ -9,10 +9,18 @@
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
     <style>
       body {
-        height: 100%; /* Если это есть, удалите или измените */
-        margin: 0 auto; /* Если это есть, удалите или измените */
+        min-height: 100vh;
+        padding-top: 60px;
       }
-      /* Стили для кнопки "Добавить" */
+
+      .footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: auto;
+      }
+
       #addNewsButton {
         background-color: #4caf50;
         color: white;
@@ -26,7 +34,6 @@
         background-color: #45a049;
       }
 
-      /* Стили для формы */
       .news-form {
         background-color: #f9f9f9;
         padding: 20px;
@@ -34,7 +41,6 @@
         margin-bottom: 20px;
       }
 
-      /* Стили для кнопок в форме */
       #submitBtn,
       #cancelBtn {
         background-color: #4caf50;
@@ -53,12 +59,17 @@
       #cancelBtn:hover {
         opacity: 0.8;
       }
+
+      /* Стиль для невалидных полей */
+      input:invalid,
+      textarea:invalid {
+        border-color: #ff4444;
+      }
     </style>
   </head>
   <body>
     <header class="header">
       <div class="container">
-        <!-- Навигация -->
         <nav class="nav">
           <a href="../index.html" class="logo">Foodie</a>
           <input id="menu__toggle" type="checkbox" />
@@ -89,25 +100,47 @@
       </div>
 
       <div class="news-page">
-        <!-- Кнопка "Добавить" -->
-        <!-- <button id="addNewsButton">Добавить новость</button> -->
-
-        <!-- Форма (изначально скрыта) -->
         <div class="news-form" id="newsFormContainer" style="display: none">
           <form id="newsForm">
             <div class="form-group">
               <label for="title">Заголовок:</label>
-              <input type="text" id="title" required />
+
+              <input
+                type="text"
+                id="title"
+                required
+                maxlength="100"
+                oninput="validateField(this)"
+              />
+              <span id="titleCounter"></span>
+
             </div>
 
             <div class="form-group">
               <label for="content">Содержание:</label>
-              <textarea id="content" required></textarea>
+
+              <textarea
+                id="content"
+                required
+                maxlength="500"
+                oninput="validateField(this)"
+              ></textarea>
+              <span id="contentCounter"></span>
+
             </div>
 
             <div class="form-group">
               <label for="category">Категория:</label>
-              <input type="text" id="category" required/>
+
+              <input
+                type="text"
+                id="category"
+                required
+                maxlength="50"
+                oninput="validateField(this)"
+              />
+              <span id="categoryCounter"></span>
+
             </div>
 
             <button type="submit" id="submitBtn">Добавить новость</button>
@@ -115,7 +148,6 @@
           </form>
         </div>
 
-        <!-- Контейнер для новостей -->
         <div id="newsContainer"></div>
       </div>
     </div>
@@ -135,6 +167,31 @@
         <p>&copy; 2025 Foodie. All Rights Reserved.</p>
       </div>
     </footer>
+
+    <script>
+      // Функция валидации поля (запрет только пробелов)
+      function validateField(input) {
+        if (/^\s*$/.test(input.value)) {
+          input.setCustomValidity("Поле не может содержать только пробелы");
+        } else {
+          input.setCustomValidity("");
+        }
+
+        // Обновляем счетчики символов
+        updateCounter(input);
+      }
+
+      // Инициализация счетчиков при загрузке
+      document.addEventListener("DOMContentLoaded", function () {
+        const inputs = ["title", "content", "category"];
+        inputs.forEach((id) => {
+          const input = document.getElementById(id);
+          if (input) {
+            updateCounter(input);
+          }
+        });
+      });
+    </script>
 
     <script src="../scripts/scripts_new.js"></script>
   </body>

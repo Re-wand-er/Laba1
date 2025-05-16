@@ -30,6 +30,12 @@ cancelBtn.addEventListener("click", () => {
   newsFormContainer.style.display = "none";
   addNewsButton.style.display = "block";
   newsForm.reset();
+
+  const newsItemElement = document.querySelector(`.news-item[data-id="${currentNewsId}"]`);
+  if (newsItemElement) {
+    newsItemElement.style.display = "block"; // Показываем скрытый блок новости
+  }
+
   currentNewsId = null;
 });
 
@@ -57,12 +63,27 @@ newsForm.addEventListener("submit", (e) => {
 
 // Поиск и сортировка
 searchInput.addEventListener("input", (e) => {
-  renderNews(filterNews(e.target.value));
+  applyFiltersAndSearch();
 });
 
 sortSelect.addEventListener("change", () => {
-  renderNews(sortNews(getAllNews()));
+  applyFiltersAndSearch();
 });
+
+// Функция для применения фильтрации и поиска
+function applyFiltersAndSearch() {
+  let news = getAllNews();
+
+  // Применяем поиск, если есть текст в поисковой строке
+  if (searchInput.value) {
+    news = filterNews(searchInput.value);
+  }
+
+  // Применяем сортировку
+  news = sortNews(news);
+
+  renderNews(news);
+}
 
 // CRUD операции
 function getAllNews() {
@@ -77,28 +98,20 @@ function addNews(newsItem) {
   const news = getAllNews();
   news.push({ ...newsItem, id: Date.now().toString() });
   saveNews(news);
-  renderNews(sortNews(news));
+  applyFiltersAndSearch();
 }
 
-// Функция удаления новости
 function deleteNews(id) {
-  // 1. Получаем все новости из localStorage
   const news = getAllNews();
-
-  // 2. Фильтруем новости, оставляя только те, у которых ID не совпадает с переданным ID
   const updatedNews = news.filter((item) => item.id !== id);
-
-  // 3. Сохраняем обновленный массив новостей в localStorage
   saveNews(updatedNews);
-
-  // 4. Отрисовываем обновленный список новостей на странице
-  renderNews(sortNews(updatedNews));
+  applyFiltersAndSearch();
 }
 
 function updateNews(id, updatedItem) {
   const news = getAllNews().map((item) => (item.id === id ? { ...updatedItem, id } : item));
   saveNews(news);
-  renderNews(sortNews(news));
+  applyFiltersAndSearch();
 }
 
 // Фильтрация и сортировка
@@ -155,24 +168,24 @@ function renderNews(newsArray) {
 
 // Редактирование новости
 window.editNewsHandler = function (id) {
-  // Находим новость в массиве
-  const newsItem = getAllNews().find((item) => item.id === id);
 
-  // Находим соответствующий DOM-элемент новости
-  const newsItemElement = document.querySelector(`.news-item[data-id="${id}"]`);
-  console.log(newsItemElement);
-  if (newsItemElement) {
-    newsItemElement.style.display = "none"; // Скрываем блок новости
+  if (newsFormContainer.style.display === "block") {
+    alert(
+      "Вы уже открыли форму редактирования. Закройте текущую форму, чтобы редактировать другую новость.",
+    );
+    return;
   }
 
-  // Заполняем форму данными новости
+  const newsItem = getAllNews().find((item) => item.id === id);
+  const newsItemElement = document.querySelector(`.news-item[data-id="${id}"]`);
+
+  if (newsItemElement) {
+    newsItemElement.style.display = "none";
+  }
+
   titleInput.value = newsItem.title;
   contentInput.value = newsItem.content;
   categoryInput.value = newsItem.category || "";
-
-  // Сохраняем ID текущей новости для дальнейшего использования
   currentNewsId = id;
-
-  // Отображаем форму редактирования
   newsFormContainer.style.display = "block";
 };
